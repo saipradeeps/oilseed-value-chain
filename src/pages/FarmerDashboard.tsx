@@ -1,18 +1,21 @@
-import { Link } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Upload, TrendingUp, Package, DollarSign, Users, BarChart3 } from 'lucide-react';
+import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Upload, TrendingUp, Package, DollarSign, Users, BarChart3 } from "lucide-react";
 
 const FarmerDashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 pt-24 pb-12">
+        {/* Header */}
         <div className="mb-8">
-          <h1 className="mb-2">Farmer Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back! Manage your batches and track your earnings.</p>
+          <h1 className="mb-2 text-3xl font-bold">Farmer Dashboard</h1>
+          <p className="text-muted-foreground">
+            Welcome back! Manage your batches and track your earnings.
+          </p>
         </div>
 
         {/* Statistics Cards */}
@@ -68,10 +71,14 @@ const FarmerDashboard = () => {
             <CardHeader>
               <Upload className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Upload New Batch</CardTitle>
-              <CardDescription>Register a new oilseed by-product batch for AI grading</CardDescription>
+              <CardDescription>
+                Register a new oilseed by-product batch for AI grading
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="hero" className="w-full">Upload Batch</Button>
+              <Button variant="hero" className="w-full">
+                Upload Batch
+              </Button>
             </CardContent>
           </Card>
 
@@ -82,29 +89,42 @@ const FarmerDashboard = () => {
               <CardDescription>Track and manage your registered batches</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">View Batches</Button>
+              <Button variant="outline" className="w-full">
+                View Batches
+              </Button>
             </CardContent>
           </Card>
 
-          <Card className="grain-texture hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <TrendingUp className="h-8 w-8 mb-2 text-primary" />
-              <CardTitle>Market Prices</CardTitle>
-              <CardDescription>Check current rates and price forecasts</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button variant="outline" className="w-full">Check Prices</Button>
-            </CardContent>
+          {/* ✅ Market Prices Card (now navigates to MarketPrices.tsx) */}
+          <Card className="grain-texture hover:shadow-lg transition-shadow cursor-pointer">
+            <Link to="/market-prices" className="block h-full">
+              <CardHeader>
+                <TrendingUp className="h-8 w-8 mb-2 text-primary" />
+                <CardTitle>Market Prices</CardTitle>
+                <CardDescription>
+                  Check current rates and price forecasts
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full">
+                  Check Prices
+                </Button>
+              </CardContent>
+            </Link>
           </Card>
 
           <Card className="grain-texture hover:shadow-lg transition-shadow">
             <CardHeader>
               <Users className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Join Cooperative</CardTitle>
-              <CardDescription>Pool resources with other farmers for better prices</CardDescription>
+              <CardDescription>
+                Pool resources with other farmers for better prices
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">Explore Cooperatives</Button>
+              <Button variant="outline" className="w-full">
+                Explore Cooperatives
+              </Button>
             </CardContent>
           </Card>
 
@@ -112,10 +132,14 @@ const FarmerDashboard = () => {
             <CardHeader>
               <BarChart3 className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Analytics</CardTitle>
-              <CardDescription>View your earnings and quality trends</CardDescription>
+              <CardDescription>
+                View your earnings and quality trends
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">View Analytics</Button>
+              <Button variant="outline" className="w-full">
+                View Analytics
+              </Button>
             </CardContent>
           </Card>
 
@@ -123,10 +147,14 @@ const FarmerDashboard = () => {
             <CardHeader>
               <DollarSign className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Transactions</CardTitle>
-              <CardDescription>View payment history and pending transactions</CardDescription>
+              <CardDescription>
+                View payment history and pending transactions
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">View Transactions</Button>
+              <Button variant="outline" className="w-full">
+                View Transactions
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -135,7 +163,9 @@ const FarmerDashboard = () => {
         <Card className="grain-texture">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Your latest batch activities and transactions</CardDescription>
+            <CardDescription>
+              Your latest batch activities and transactions
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -143,28 +173,38 @@ const FarmerDashboard = () => {
                 <div className="h-2 w-2 rounded-full bg-green-500 mt-2" />
                 <div className="flex-1">
                   <p className="font-medium">Batch B045 graded as Grade A</p>
-                  <p className="text-sm text-muted-foreground">2 hours ago • Soybean Meal • 500kg</p>
+                  <p className="text-sm text-muted-foreground">
+                    2 hours ago • Soybean Meal • 500kg
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4 pb-4 border-b">
                 <div className="h-2 w-2 rounded-full bg-blue-500 mt-2" />
                 <div className="flex-1">
-                  <p className="font-medium">New buyer offer ₹16,500 for Batch B043</p>
-                  <p className="text-sm text-muted-foreground">5 hours ago • Mustard Cake • 350kg</p>
+                  <p className="font-medium">
+                    New buyer offer ₹16,500 for Batch B043
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    5 hours ago • Mustard Cake • 350kg
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4 pb-4 border-b">
                 <div className="h-2 w-2 rounded-full bg-green-500 mt-2" />
                 <div className="flex-1">
                   <p className="font-medium">Payment received ₹24,300</p>
-                  <p className="text-sm text-muted-foreground">1 day ago • Batch B042 • Groundnut Cake</p>
+                  <p className="text-sm text-muted-foreground">
+                    1 day ago • Batch B042 • Groundnut Cake
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="h-2 w-2 rounded-full bg-gray-500 mt-2" />
                 <div className="flex-1">
                   <p className="font-medium">Batch B042 delivered successfully</p>
-                  <p className="text-sm text-muted-foreground">2 days ago • Verified by buyer</p>
+                  <p className="text-sm text-muted-foreground">
+                    2 days ago • Verified by buyer
+                  </p>
                 </div>
               </div>
             </div>
