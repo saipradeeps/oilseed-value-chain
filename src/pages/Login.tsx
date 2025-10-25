@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -6,6 +6,14 @@ import { Label } from '@/components/ui/label';
 import Navbar from '@/components/Navbar';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // For now, default to farmer dashboard - later this will check user role
+    navigate('/dashboard/farmer');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -20,6 +28,7 @@ const Login = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              <form onSubmit={handleLogin}>
               <div className="space-y-2">
                 <Label htmlFor="email">Email or Mobile</Label>
                 <Input id="email" placeholder="Enter email or mobile number" />
@@ -40,9 +49,10 @@ const Login = () => {
                 </Link>
               </div>
 
-              <Button variant="hero" size="lg" className="w-full">
+              <Button type="submit" variant="hero" size="lg" className="w-full">
                 Login
               </Button>
+              </form>
 
               <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">

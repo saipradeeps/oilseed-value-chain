@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,8 +12,21 @@ import { UserRole } from '@/types';
 
 const Register = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const defaultRole = searchParams.get('role') as UserRole || 'farmer';
   const [role, setRole] = useState<UserRole>(defaultRole);
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Navigate to appropriate dashboard based on role
+    if (role === 'farmer') {
+      navigate('/dashboard/farmer');
+    } else if (role === 'buyer') {
+      navigate('/dashboard/buyer');
+    } else if (role === 'international_buyer') {
+      navigate('/dashboard/international');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,6 +64,7 @@ const Register = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <form onSubmit={handleRegister}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="farmerName">Full Name</Label>
@@ -88,9 +102,10 @@ const Register = () => {
                     <Input id="farmerPassword" type="password" placeholder="Create a password" />
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
                     Register as Farmer
                   </Button>
+                  </form>
 
                   <p className="text-sm text-center text-muted-foreground">
                     Already have an account?{' '}
@@ -111,6 +126,7 @@ const Register = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <form onSubmit={handleRegister}>
                   <div className="space-y-2">
                     <Label htmlFor="companyName">Company Name</Label>
                     <Input id="companyName" placeholder="Your company name" />
@@ -163,9 +179,10 @@ const Register = () => {
                     <Input id="buyerPassword" type="password" placeholder="Create a password" />
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
                     Register as Buyer
                   </Button>
+                  </form>
 
                   <p className="text-sm text-center text-muted-foreground">
                     Already have an account?{' '}
@@ -186,6 +203,7 @@ const Register = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <form onSubmit={handleRegister}>
                   <div className="space-y-2">
                     <Label htmlFor="intCompanyName">Company Name</Label>
                     <Input id="intCompanyName" placeholder="Your company name" />
@@ -262,9 +280,10 @@ const Register = () => {
                     <Input id="intPassword" type="password" placeholder="Create a password" />
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
                     Register as International Buyer
                   </Button>
+                  </form>
 
                   <p className="text-sm text-center text-muted-foreground">
                     Already have an account?{' '}
