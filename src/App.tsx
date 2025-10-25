@@ -12,7 +12,7 @@ import FarmerDashboard from "./pages/FarmerDashboard";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import InternationalBuyerDashboard from "./pages/InternationalBuyerDashboard";
 import MarketPrices from "./pages/MarketPrices";
-import TrackingShipment from "./pages/TrackingShipment";
+import ShipmentTracking from "./pages/ShipmentTracking"; // ✅ Correct original name
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,21 +24,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={<Index />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
-          {/* Dashboards */}
           <Route path="/dashboard/farmer" element={<FarmerDashboard />} />
           <Route path="/dashboard/buyer" element={<BuyerDashboard />} />
           <Route path="/dashboard/international" element={<InternationalBuyerDashboard />} />
 
-          {/* Additional Pages */}
           <Route path="/market-prices" element={<MarketPrices />} />
-          <Route path="/tracking-shipment" element={<TrackingShipment />} />
+          <Route path="/shipment-tracking" element={<ShipmentTracking />} /> {/* ✅ Correct route */}
 
-          {/* 404 Fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
