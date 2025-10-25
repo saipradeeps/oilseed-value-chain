@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Globe, Shield, TrendingUp, Package, Star, FileCheck, Ship, DollarSign, PackageSearch, ArrowRight } from 'lucide-react';
+import { Globe, Shield, Package, Star, FileCheck, Ship, DollarSign } from 'lucide-react';
 
 const InternationalBuyerDashboard = () => {
   return (
@@ -17,8 +17,7 @@ const InternationalBuyerDashboard = () => {
             <p className="text-muted-foreground">Access export-grade oilseed by-products with blockchain verification</p>
           </div>
           <Badge className="bg-gradient-primary text-white px-4 py-2 text-base">
-            <Globe className="h-4 w-4 mr-2" />
-            Premium International Access
+            <Globe className="h-4 w-4 mr-2" /> Premium International Access
           </Badge>
         </div>
 
@@ -34,7 +33,6 @@ const InternationalBuyerDashboard = () => {
               <p className="text-xs text-muted-foreground">In transit globally</p>
             </CardContent>
           </Card>
-
           <Card className="grain-texture border-primary/20">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium">Monthly Volume</CardTitle>
@@ -45,7 +43,6 @@ const InternationalBuyerDashboard = () => {
               <p className="text-xs text-muted-foreground">This month</p>
             </CardContent>
           </Card>
-
           <Card className="grain-texture border-primary/20">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium">Export Value</CardTitle>
@@ -56,7 +53,6 @@ const InternationalBuyerDashboard = () => {
               <p className="text-xs text-muted-foreground">This month</p>
             </CardContent>
           </Card>
-
           <Card className="grain-texture border-primary/20">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium">Quality Grade</CardTitle>
@@ -66,54 +62,6 @@ const InternationalBuyerDashboard = () => {
               <div className="text-2xl font-bold">A+</div>
               <p className="text-xs text-muted-foreground">Export certified</p>
             </CardContent>
-          </Card>
-        </div>
-
-        {/* Dashboard Cards: Track Shipment & Market Prices */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {/* Track Shipment */}
-          <Card className="p-6 flex flex-col justify-between">
-            <div>
-              <PackageSearch className="h-12 w-12 mb-4 text-primary" />
-              <h2 className="text-xl font-semibold mb-2">Track Shipment</h2>
-              <p className="text-muted-foreground">
-                Track your shipments and get live updates on current status.
-              </p>
-            </div>
-            <Link to="/shipment-tracking">
-              <Button className="mt-4 w-full">
-                Track Now <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </Card>
-
-          {/* Market Prices */}
-          <Card className="p-6 flex flex-col justify-between">
-            <div>
-              <Globe className="h-12 w-12 mb-4 text-secondary" />
-              <h2 className="text-xl font-semibold mb-2">Market Prices</h2>
-              <p className="text-muted-foreground">
-                Check real-time global oilseed and feed market prices.
-              </p>
-            </div>
-            <Link to="/market-prices">
-              <Button className="mt-4 w-full" variant="secondary">
-                View Prices <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </Card>
-
-          {/* Placeholder for future features */}
-          <Card className="p-6 flex flex-col justify-between">
-            <div>
-              <h2 className="text-xl font-semibold mb-2">Trade Insights</h2>
-              <p className="text-muted-foreground">
-                Insights and analytics on international trade trends.
-              </p>
-            </div>
-            <Button disabled className="mt-4 w-full opacity-60">
-              Coming Soon
-            </Button>
           </Card>
         </div>
 
@@ -148,14 +96,17 @@ const InternationalBuyerDashboard = () => {
               <CardDescription>End-to-end shipping with real-time tracking</CardDescription>
             </CardHeader>
             <CardContent>
+              {/* ✅ Link button to ShipmentTracking page */}
               <Link to="/shipment-tracking">
-                <Button variant="outline" className="w-full">
-                  Track Shipments
-                </Button>
+                <Button variant="outline" className="w-full">Track Shipments</Button>
               </Link>
             </CardContent>
           </Card>
         </div>
+
+        {/* Export-Grade Marketplace and Active Shipments remain unchanged */}
+        {/* ... your other cards and marketplace content ... */}
+
       </div>
     </div>
   );
