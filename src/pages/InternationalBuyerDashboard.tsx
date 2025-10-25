@@ -98,7 +98,15 @@ const InternationalBuyerDashboard = () => {
               <CardDescription>End-to-end shipping with real-time tracking</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">Track Shipments</Button>
+              {/* LINKED BUTTON */}
+              <Button 
+                variant="outline" 
+                className="w-full"
+                as={Link} 
+                to="/shipment-tracking"
+              >
+                Track Shipments
+              </Button>
             </CardContent>
           </Card>
         </div>
