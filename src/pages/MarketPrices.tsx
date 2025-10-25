@@ -59,23 +59,29 @@ const MarketPrices = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* ---------- Header ---------- */}
       <header className="border-b bg-card sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <Link to="/farmer/dashboard">
-            <Button variant="ghost">
+          {/* ✅ Fixed link to correct dashboard path */}
+          <Link to="/dashboard/farmer">
+            <Button variant="ghost" className="hover:bg-muted">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
             </Button>
           </Link>
         </div>
       </header>
 
+      {/* ---------- Main Content ---------- */}
       <div className="container mx-auto px-4 py-8">
+        {/* Title Section */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Market Prices</h1>
-          <p className="text-muted-foreground">Real-time market rates for oilseed by-products</p>
+          <p className="text-muted-foreground">
+            Real-time market rates for oilseed by-products
+          </p>
         </div>
 
-        {/* Market Sentiment */}
+        {/* Market Overview Cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <Card className="p-6 bg-success/10 border-success/20">
             <div className="flex items-center gap-3">
@@ -110,7 +116,7 @@ const MarketPrices = () => {
           </Card>
         </div>
 
-        {/* Price Table */}
+        {/* ---------- Price Table ---------- */}
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -127,28 +133,46 @@ const MarketPrices = () => {
               </thead>
               <tbody>
                 {marketData.map((item, i) => (
-                  <tr key={i} className="border-t hover:bg-muted/50 transition-colors">
+                  <tr
+                    key={i}
+                    className="border-t hover:bg-muted/50 transition-colors"
+                  >
                     <td className="p-4 font-semibold">{item.crop}</td>
-                    <td className="p-4 text-xl font-bold">{item.currentPrice}/kg</td>
+                    <td className="p-4 text-xl font-bold">
+                      {item.currentPrice}/kg
+                    </td>
                     <td className="p-4">{item.gradeA}/kg</td>
                     <td className="p-4">{item.gradeB}/kg</td>
                     <td className="p-4">{item.gradeC}/kg</td>
                     <td className="p-4">
-                      <span className={`flex items-center gap-1 font-semibold ${
-                        item.trend === "up" ? "text-success" : 
-                        item.trend === "down" ? "text-destructive" : "text-muted-foreground"
-                      }`}>
-                        {item.trend === "up" && <TrendingUp className="h-4 w-4" />}
-                        {item.trend === "down" && <TrendingDown className="h-4 w-4" />}
+                      <span
+                        className={`flex items-center gap-1 font-semibold ${
+                          item.trend === "up"
+                            ? "text-success"
+                            : item.trend === "down"
+                            ? "text-destructive"
+                            : "text-muted-foreground"
+                        }`}
+                      >
+                        {item.trend === "up" && (
+                          <TrendingUp className="h-4 w-4" />
+                        )}
+                        {item.trend === "down" && (
+                          <TrendingDown className="h-4 w-4" />
+                        )}
                         {item.change}
                       </span>
                     </td>
                     <td className="p-4">
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        item.demand === "High" ? "bg-success/20 text-success" :
-                        item.demand === "Medium" ? "bg-secondary/20 text-secondary" :
-                        "bg-muted text-muted-foreground"
-                      }`}>
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                          item.demand === "High"
+                            ? "bg-success/20 text-success"
+                            : item.demand === "Medium"
+                            ? "bg-secondary/20 text-secondary"
+                            : "bg-muted text-muted-foreground"
+                        }`}
+                      >
                         {item.demand}
                       </span>
                     </td>
@@ -159,7 +183,7 @@ const MarketPrices = () => {
           </div>
         </Card>
 
-        {/* Market Insights */}
+        {/* ---------- Market Insights ---------- */}
         <div className="grid md:grid-cols-2 gap-6 mt-8">
           <Card className="p-6">
             <h3 className="text-xl font-bold mb-4">7-Day Price Forecast</h3>
@@ -167,7 +191,7 @@ const MarketPrices = () => {
               <div className="text-center">
                 <TrendingUp className="h-12 w-12 mx-auto mb-2 text-success" />
                 <p className="text-sm text-muted-foreground">
-                  Soybean meal prices expected to increase 2-3% by next week
+                  Soybean meal prices expected to increase 2–3% by next week
                 </p>
               </div>
             </div>
@@ -177,9 +201,11 @@ const MarketPrices = () => {
             <h3 className="text-xl font-bold mb-4">Price Alerts</h3>
             <div className="space-y-3">
               <div className="p-3 bg-success/10 border border-success/20 rounded-lg">
-                <p className="font-semibold text-success">✓ Price Target Reached</p>
+                <p className="font-semibold text-success">
+                  ✓ Price Target Reached
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Soybean meal crossed ₹33/kg - Good time to sell
+                  Soybean meal crossed ₹33/kg — Good time to sell
                 </p>
               </div>
               <div className="p-3 bg-secondary/10 border border-secondary/20 rounded-lg">
@@ -198,7 +224,7 @@ const MarketPrices = () => {
           </Card>
         </div>
 
-        {/* Regional Comparison */}
+        {/* ---------- Regional Comparison ---------- */}
         <Card className="p-6 mt-6">
           <h3 className="text-xl font-bold mb-4">Regional Price Comparison</h3>
           <div className="grid md:grid-cols-3 gap-4">
@@ -208,9 +234,13 @@ const MarketPrices = () => {
               { region: "Gujarat", price: "₹32.80/kg", status: "Lower" },
             ].map((region, i) => (
               <div key={i} className="p-4 border rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">{region.region}</p>
+                <p className="text-sm text-muted-foreground mb-1">
+                  {region.region}
+                </p>
                 <p className="text-2xl font-bold mb-1">{region.price}</p>
-                <p className="text-sm text-muted-foreground">{region.status}</p>
+                <p className="text-sm text-muted-foreground">
+                  {region.status}
+                </p>
               </div>
             ))}
           </div>
