@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/e986f33d-15a7-4f8d-b3d0-93272e8bd4ff
+# OilSeedXChange
 
-## How can I edit this code?
+## Overview
+OilSeedXChange is a full-stack digital platform that empowers farmers, cooperatives, buyers, and exporters in the oilseed by-product supply chain. Leveraging AI-powered biochemical quality grading, blockchain-secured traceability, dynamic pricing, and multi-language chatbots, the platform ensures fair pricing, premium market access, and transparent transactions.
 
-There are several ways of editing your application.
+## Live Demo
+Access the deployed website to explore the platform:
 
-**Use Lovable**
+[https://oilseed-value-chain.vercel.app](https://oilseed-value-chain.vercel.app)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e986f33d-15a7-4f8d-b3d0-93272e8bd4ff) and start prompting.
+## Source Code
+The complete source code is available on GitHub:
 
-Changes made via Lovable will be committed automatically to this repo.
+[https://github.com/saipradeeps/oilseed-value-chain.git](https://github.com/saipradeeps/oilseed-value-chain.git)
 
-**Use your preferred IDE**
+## Features
+- Farmer and Buyer dedicated dashboards with role-based views
+- Batch registration with image upload and process details
+- AI-driven biochemical quality grading and export-grade classification
+- Blockchain-based NFT certificates for tamper-proof quality validation
+- Dynamic pricing with real-time market data and AI forecasts
+- Multi-language WhatsApp chatbot interface for universal accessibility
+- IoT and GPS-enabled logistics tracking for supply chain transparency
+- Cooperative pooling and automated revenue sharing mechanisms
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Installation & Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js, npm
+- Python 3.8+
+- PostgreSQL and MongoDB instances
+- AWS or Google Cloud storage accounts
+- Polygon blockchain testnet access
 
-Follow these steps:
+### Steps
+1. Clone the repo:  
+   `git clone https://github.com/saipradeeps/oilseed-value-chain.git`
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Install frontend dependencies:  
+   `cd frontend && npm install`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. Install backend dependencies:  
+   `cd backend && pip install -r requirements.txt`
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Setup environment variables (API keys, DB URLs, blockchain keys, WhatsApp API tokens).
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+5. Launch frontend development server:  
+   `npm start`
 
-**Edit a file directly in GitHub**
+6. Launch backend API server:  
+   `uvicorn main:app --reload`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+7. Deploy smart contracts on Polygon Mumbai Testnet.
 
-**Use GitHub Codespaces**
+8. Integrate frontend backend and blockchain services.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Usage
+- Farmers can upload batches, view grades, set prices, and track sales.
+- Buyers and global exporters browse certified batches, make offers, and manage purchase orders.
+- Cooperatives pool batches and transparently distribute earnings.
 
-## What technologies are used for this project?
+## Contribution
+Pull requests welcome with adherence to coding standards and tests.
 
-This project is built with:
+## License
+MIT License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e986f33d-15a7-4f8d-b3d0-93272e8bd4ff) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+***
