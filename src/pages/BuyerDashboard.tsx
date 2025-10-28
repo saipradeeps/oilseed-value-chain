@@ -35,7 +35,7 @@ const BuyerDashboard = () => {
       quantity: 450,
       price: 38.50,
       location: 'Ahmedabad, Gujarat',
-      rating: 4.7,
+      rating: 4.71,
       image: '/placeholder.svg'
     }
   ];
